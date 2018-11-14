@@ -37,10 +37,12 @@ public class LoginSteps {
 		driver.findElement(By.id("login-portal")).click();
 	}
 
+	// Swtich Window handle
 	@When("^I enter a username$")
 	public void i_enter_a_username() throws Throwable {
-		@SuppressWarnings("unused")
-		String winHandlerBefore = driver.getWindowHandle();
+		// @SuppressWarnings("unused")
+		// // To get the window handle of the current window.
+		// String winHandlerBefore = driver.getWindowHandle();
 
 		for (String winHandler : driver.getWindowHandles()) {
 			driver.switchTo().window(winHandler);
@@ -62,6 +64,7 @@ public class LoginSteps {
 
 	@Then("^I should be presented with a succesfful validation alert$")
 	public void i_should_be_presented_with_a_succesfful_validation_alert() throws Throwable {
+		// Switch to popup
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
 
@@ -70,6 +73,7 @@ public class LoginSteps {
 
 	@Then("^I should be presented with a unsuccesfful validation alert$")
 	public void i_should_be_presented_with_a_unsuccesfful_validation_alert() throws Throwable {
+		// Switch to popup
 		Alert alert = driver.switchTo().alert();
 		System.out.println(alert.getText());
 
